@@ -42,4 +42,20 @@ function Number_observations(){  // n
       return data.length;
 }
 
+export default async function linear_regression_data(){
+    
+        await getData(); // read data from .csv
+        const { ensembelY, ensembelX } = EnsembleVariables();  // ∑X ∑Y
+        const x_pow_two =Powertwovariables();  // ∑X2
+        const xy   = MultiplicationVariables(); // XY
+        const n =  Number_observations();   // n
+        return {
+            ensembelY : ensembelY ,
+            ensembelX : ensembelX ,
+            x_pow_two : x_pow_two ,
+            xy : xy ,
+            number_observations : n
+        }
+    
+}
 
