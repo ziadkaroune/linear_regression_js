@@ -22,4 +22,13 @@ async function calculate_tetaOne(){
 
 }
 
+// Intercept θ0 teta_0
+async function calculate_tetaZero(tetaOne){
 
+
+    const { ensembelY , ensembelX  , number_observations} = coefficients;
+    var tetaZero = 
+        ((ensembelY ) - ( tetaOne * ensembelX )) / (number_observations);
+    return tetaZero;
+  
+}
