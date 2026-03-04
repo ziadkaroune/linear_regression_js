@@ -32,3 +32,29 @@ async function calculate_tetaZero(tetaOne){
     return tetaZero;
   
 }
+//estimatePrice(mileage) = θ0 + (θ1 ∗ mileage)
+export default async function estimatePrice(milage) {
+    try{
+        var estimate_price_result = 0;
+        await initi_coefficients();
+        if(!coefficients)
+                throw new Error("cannot get Data from linear_regression_data function to calculate ");
+    
+        const tetaOne =  await calculate_tetaOne();
+     
+        if(tetaOne === undefined || tetaOne === null)
+               throw new Error("cannot get tetaOne  to calculate Our tetaZero");
+
+        const  tetaZero = await calculate_tetaZero(tetaOne);
+        //console.log(`estimatePrice(mileage) = ${tetaZero} + (${tetaOne} ∗ mileage)\n`)
+         estimate_price_result = tetaZero + (tetaOne * milage);
+   
+        return  estimate_price_result;
+
+    }
+     catch(err){
+        console.error(err.message);
+        return null;
+    }
+}
+
