@@ -1,6 +1,7 @@
+import fs from 'fs/promises'
 
 // read data.csv
-export async function getData(){
+export default async function getData(){
 
             var data ;
             const read_csv = await fs.readFile('./data.csv' , 'utf-8');
